@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EcoGov — Direções visuais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;600;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,sans-serif;background:#1a1a1a;color:#eee}
+  .intro{padding:40px 6vw 28px;max-width:1100px}
+  .intro h1{font-size:22px;font-weight:600;margin-bottom:6px}
+  .intro p{color:#aaa;font-size:15px;line-height:1.5}
+  .tag{display:inline-block;font:600 12px/1 system-ui;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:#111;padding:7px 10px;border-radius:4px;margin:0 6vw 10px}
+  .dir{margin:0 0 56px}
+  .frame{margin:0 6vw;border-radius:10px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 5%}
+  nav img{height:34px}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:14px}
+  .btn{display:inline-block;padding:14px 22px;font-weight:600;font-size:15px;text-decoration:none;border-radius:4px}
+  .hero{padding:70px 5% 80px;display:grid;grid-template-columns:1.25fr 1fr;gap:5%;align-items:end}
+  .eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
+  .hero h2{font-size:clamp(36px,5vw,64px);line-height:1.04;margin-bottom:24px}
+  .hero p{font-size:18px;line-height:1.55;max-width:46ch;margin-bottom:30px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;padding:0 5% 60px}
+  .card{padding:28px 26px}
+  .card small{font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+  .card h3{font-size:20px;margin:12px 0 10px;line-height:1.2}
+  .card p{font-size:14.5px;line-height:1.55}
+  .spec{display:flex;flex-wrap:wrap;gap:28px;align-items:center;padding:22px 6vw 0;font-size:13px;color:#bbb}
+  .sw{display:flex;gap:8px}
+  .sw span{width:44px;height:44px;border-radius:6px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:flex-end;padding:3px;font:9px/1 monospace;color:#fff;text-shadow:0 0 3px #000}
+  .why{padding:10px 6vw 0;color:#ccc;font-size:14.5px;line-height:1.55;max-width:900px}
+  @media(max-width:760px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:1fr}nav ul{display:none}}
+
+  /* ---------- A: CÍVICO EDITORIAL ---------- */
+  .a{background:#F5F1E8;color:#1C2B24;font-family:"IBM Plex Sans",sans-serif}
+  .a nav{border-bottom:1px solid #1C2B2422}
+  .a nav img{filter:brightness(0) opacity(.85)}
+  .a .hero h2{font-family:Fraunces,serif;font-weight:400;letter-spacing:-.01em}
+  .a .hero h2 em{font-style:italic;color:#1F5C43}
+  .a .eyebrow{color:#9A5B1E;font-weight:600}
+  .a .btn{background:#1F5C43;color:#F5F1E8}
+  .a .side{border-left:2px solid #9A5B1E;padding-left:22px;font-family:Fraunces,serif;font-size:21px;line-height:1.4;color:#1C2B24}
+  .a .side small{display:block;margin-top:12px;font:13px "IBM Plex Sans";color:#5d6b63}
+  .a .cards{background:#1C2B2422}
+  .a .card{background:#F5F1E8}
+  .a .card small{color:#9A5B1E;font-weight:600}
+  .a .card h3{font-family:Fraunces,serif;font-weight:600}
+  .a .card p{color:#44534b}
+
+  /* ---------- B: CLIMA EM DADOS ---------- */
+  .b{background:#0C1B24;color:#E8EEF0;font-family:"IBM Plex Sans",sans-serif;position:relative}
+  .b .stripes{height:14px;background:linear-gradient(90deg,#08306b 0 4%,#08519c 4% 8%,#2171b5 8% 12%,#4292c6 12% 16%,#6baed6 16% 20%,#9ecae1 20% 24%,#c6dbef 24% 28%,#deebf7 28% 32%,#c6dbef 32% 36%,#deebf7 36% 40%,#fee0d2 40% 44%,#9ecae1 44% 48%,#fcbba1 48% 52%,#fee0d2 52% 56%,#fc9272 56% 60%,#fcbba1 60% 64%,#fb6a4a 64% 68%,#fc9272 68% 72%,#ef3b2c 72% 76%,#fb6a4a 76% 80%,#cb181d 80% 84%,#ef3b2c 84% 88%,#a50f15 88% 92%,#cb181d 92% 96%,#67000d 96% 100%)}
+  .b .hero h2{font-family:"Space Grotesk",sans-serif;font-weight:500;letter-spacing:-.03em}
+  .b .hero h2 em{font-style:normal;color:#5FD3B4}
+  .b .eyebrow{font-family:"IBM Plex Mono",monospace;color:#5FD3B4}
+  .b .btn{background:#5FD3B4;color:#0C1B24}
+  .b .data{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#ffffff1f;border:1px solid #ffffff1f}
+  .b .data div{background:#0C1B24;padding:20px}
+  .b .data b{display:block;font:500 34px "Space Grotesk";color:#fff}
+  .b .data span{font:12px/1.4 "IBM Plex Mono",monospace;color:#8FA6B0}
+  .b .cards{background:#ffffff1f}
+  .b .card{background:#0F222D}
+  .b .card small{font-family:"IBM Plex Mono",monospace;color:#5FD3B4}
+  .b .card h3{font-family:"Space Grotesk";font-weight:500}
+  .b .card p{color:#A9BAC1}
+
+  /* ---------- C: CIDADE VIVA ---------- */
+  .c{background:#EEF3EC;color:#14301F;font-family:Manrope,sans-serif}
+  .c nav{background:#14301F;border-radius:0 0 18px 18px;margin:0 3%}
+  .c nav ul{color:#cfe3d4}
+  .c .hero h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:clamp(42px,6vw,78px);line-height:.98}
+  .c .hero h2 em{color:#2E8B57}
+  .c .eyebrow{color:#2E8B57;font-weight:800}
+  .c .btn{background:#2E8B57;color:#fff;border-radius:40px}
+  .c .blob{aspect-ratio:1;border-radius:46% 54% 40% 60%/55% 40% 60% 45%;background:radial-gradient(circle at 30% 30%,#7CC69B,#2E8B57 55%,#1E5E8C);position:relative}
+  .c .blob::after{content:"–7×";position:absolute;right:8%;bottom:10%;background:#fff;color:#14301F;font:800 26px Manrope;padding:16px 18px;border-radius:16px;box-shadow:0 10px 30px #14301F33}
+  .c .cards{gap:16px}
+  .c .card{background:#fff;border-radius:18px}
+  .c .card small{color:#1E5E8C;font-weight:800}
+  .c .card h3{font-weight:800}
+  .c .card p{color:#4b6355}
+</style>
+</head>
+<body>
+<div class="intro">
+  <h1>EcoGov — 3 direções visuais</h1>
+  <p>Mesmo conteúdo (texto real do rascunho/Playbook), três personalidades diferentes. Todas viram HTML+CSS puro, sem JS — o que muda é tipografia, paleta e “assinatura” visual.</p>
+</div>
+
+<!-- A -->
+<section class="dir">
+  <span class="tag">A · Cívico Editorial</span>
+  <div class="frame a">
+    <nav><img src="logo.png" alt="EcoGov"><ul><li>Sobre</li><li>Serviços</li><li>Município Resiliente</li><li>Contato</li></ul></nav>
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Assessoria ambiental municipal</div>
+        <h2>Sua cidade mais <em>resiliente</em> e sustentável começa aqui.</h2>
+        <p>Capacitação, orientação técnica e assessoria contínua para gestores municipais enfrentarem as mudanças climáticas com ações práticas e de baixo custo.</p>
+        <a class="btn" href="#">Falar com a EcoGov</a>
+      </div>
+      <div class="side">“Municípios que se preparam antes dos eventos climáticos gastam até 7 vezes menos do que os que respondem à crise depois.”<small>— Banco Mundial, 2019</small></div>
+    </div>
+    <div class="cards">
+      <div class="card"><small>Capacitação</small><h3>Município Resiliente</h3><p>Dia completo presencial com vereadores e secretários: cenários climáticos, ODS e ações por secretaria.</p></div>
+      <div class="card"><small>Assessoria</small><h3>Projetos por secretaria</h3><p>Meio Ambiente, Saúde, Obras, Agricultura, Turismo — cada uma com projetos adaptados à realidade local.</p></div>
+      <div class="card"><small>Capacitação + Assessoria</small><h3>Controle de vetores</h3><p>Dengue, chikungunya e leptospirose combatidas com projetos ambientais estruturais e de baixo custo.</p></div>
+    </div>
+  </div>
+  <div class="spec"><div class="sw"><span style="background:#F5F1E8;color:#333;text-shadow:none">papel</span><span style="background:#1C2B24">tinta</span><span style="background:#1F5C43">verde</span><span style="background:#9A5B1E">terra</span></div><div>Fraunces (títulos) + IBM Plex Sans (texto)</div></div>
+  <p class="why"><b>Clima:</b> relatório técnico, documento público, sobriedade. Passa “órgão sério” — conversa bem com prefeito mais tradicional e com Câmara. Fundo claro pede o logo em versão escura.</p>
+</section>
+
+<!-- B -->
+<section class="dir">
+  <span class="tag">B · Clima em Dados</span>
+  <div class="frame b">
+    <div class="stripes" title="Warming stripes — aquecimento global ano a ano"></div>
+    <nav><img src="logo.png" alt="EcoGov"><ul><li>Sobre</li><li>Serviços</li><li>Município Resiliente</li><li>Contato</li></ul></nav>
+    <div class="hero">
+      <div>
+        <div class="eyebrow">// gestão climática municipal</div>
+        <h2>Sua cidade mais <em>resiliente</em> e sustentável começa aqui.</h2>
+        <p>Capacitação, orientação técnica e assessoria contínua para gestores municipais enfrentarem as mudanças climáticas com ações práticas e de baixo custo.</p>
+        <a class="btn" href="#">Falar com a EcoGov</a>
+      </div>
+      <div class="data">
+        <div><b>7×</b><span>menos custo para quem se prepara antes</span></div>
+        <div><b>12</b><span>ODS aplicáveis à gestão municipal</span></div>
+        <div><b>8</b><span>secretarias na mesma capacitação</span></div>
+        <div><b>100%</b><span>ações de baixo custo, sem edital</span></div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card"><small>01 · capacitação</small><h3>Município Resiliente</h3><p>Dia completo presencial com vereadores e secretários: cenários climáticos, ODS e ações por secretaria.</p></div>
+      <div class="card"><small>02 · assessoria</small><h3>Projetos por secretaria</h3><p>Meio Ambiente, Saúde, Obras, Agricultura, Turismo — cada uma com projetos adaptados à realidade local.</p></div>
+      <div class="card"><small>03 · híbrido</small><h3>Controle de vetores</h3><p>Dengue, chikungunya e leptospirose combatidas com projetos ambientais estruturais e de baixo custo.</p></div>
+    </div>
+  </div>
+  <div class="spec"><div class="sw"><span style="background:#0C1B24">noite</span><span style="background:#0F222D">painel</span><span style="background:#5FD3B4;color:#000;text-shadow:none">menta</span><span style="background:linear-gradient(90deg,#2171b5,#fee0d2,#cb181d)">stripes</span></div><div>Space Grotesk (títulos) + IBM Plex Sans/Mono (texto e dados)</div></div>
+  <p class="why"><b>Clima:</b> ciência climática, painel de dados, Defesa Civil/CEMADEN. A faixa de “warming stripes” (visualização do aquecimento global de Ed Hawkins) vira assinatura da marca. Usa o logo branco como está.</p>
+</section>
+
+<!-- C -->
+<section class="dir">
+  <span class="tag">C · Cidade Viva</span>
+  <div class="frame c">
+    <nav><img src="logo.png" alt="EcoGov"><ul><li>Sobre</li><li>Serviços</li><li>Município Resiliente</li><li>Contato</li></ul></nav>
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Assessoria ambiental municipal</div>
+        <h2>Sua cidade mais <em>resiliente</em> e sustentável começa aqui.</h2>
+        <p>Capacitação, orientação técnica e assessoria contínua para gestores municipais enfrentarem as mudanças climáticas com ações práticas e de baixo custo.</p>
+        <a class="btn" href="#">Falar com a EcoGov</a>
+      </div>
+      <div class="blob"></div>
+    </div>
+    <div class="cards">
+      <div class="card"><small>Capacitação</small><h3>Município Resiliente</h3><p>Dia completo presencial com vereadores e secretários: cenários climáticos, ODS e ações por secretaria.</p></div>
+      <div class="card"><small>Assessoria</small><h3>Projetos por secretaria</h3><p>Meio Ambiente, Saúde, Obras, Agricultura, Turismo — cada uma com projetos adaptados à realidade local.</p></div>
+      <div class="card"><small>Capacitação + Assessoria</small><h3>Controle de vetores</h3><p>Dengue, chikungunya e leptospirose combatidas com projetos ambientais estruturais e de baixo custo.</p></div>
+    </div>
+  </div>
+  <div class="spec"><div class="sw"><span style="background:#EEF3EC;color:#333;text-shadow:none">sálvia</span><span style="background:#14301F">mata</span><span style="background:#2E8B57">folha</span><span style="background:#1E5E8C">água</span></div><div>Instrument Serif (títulos) + Manrope (texto)</div></div>
+  <p class="why"><b>Clima:</b> acolhedor, cidade verde, qualidade de vida. Mais próximo e menos técnico — bom pra Instagram e pra secretário de Educação/Turismo, mas é a que mais se parece com outras consultorias.</p>
+</section>
+</body>
+</html>
