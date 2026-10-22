@@ -1,6 +1,6 @@
 /* ==========================================================
    EcoGov — Assessoria Ambiental e Climática Municipal
-   HTML + CSS puro (sem JS). Direção visual: "Clima em Dados".
+   HTML + CSS puro (sem JS). Direção visual: "Clima em Dados" + faixa ODS.
    ========================================================== */
 
 :root {
@@ -22,13 +22,13 @@
   --gutter: clamp(16px, 4vw, 40px);
   --radius: 6px;
 
-  /* "warming stripes" — assinatura visual da marca (frio → quente) */
+  /* faixa nas cores oficiais dos 17 ODS da ONU — assinatura visual da marca */
   --stripes: linear-gradient(90deg,
-    #08306b 0 4%, #08519c 4% 8%, #2171b5 8% 12%, #4292c6 12% 16%, #6baed6 16% 20%,
-    #9ecae1 20% 24%, #c6dbef 24% 28%, #deebf7 28% 32%, #c6dbef 32% 36%, #deebf7 36% 40%,
-    #fee0d2 40% 44%, #9ecae1 44% 48%, #fcbba1 48% 52%, #fee0d2 52% 56%, #fc9272 56% 60%,
-    #fcbba1 60% 64%, #fb6a4a 64% 68%, #fc9272 68% 72%, #ef3b2c 72% 76%, #fb6a4a 76% 80%,
-    #cb181d 80% 84%, #ef3b2c 84% 88%, #a50f15 88% 92%, #cb181d 92% 96%, #67000d 96% 100%);
+    #E5243B 0 5.88%, #DDA63A 5.88% 11.76%, #4C9F38 11.76% 17.65%, #C5192D 17.65% 23.53%,
+    #FF3A21 23.53% 29.41%, #26BDE2 29.41% 35.29%, #FCC30B 35.29% 41.18%, #A21942 41.18% 47.06%,
+    #FD6925 47.06% 52.94%, #DD1367 52.94% 58.82%, #FD9D24 58.82% 64.71%, #BF8B2E 64.71% 70.59%,
+    #3F7E44 70.59% 76.47%, #0A97D9 76.47% 82.35%, #56C02B 82.35% 88.24%, #00689D 88.24% 94.12%,
+    #19486A 94.12% 100%);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -143,7 +143,14 @@ h1 em, h2 em { font-style: normal; color: var(--mint); }
 
 /* faixa do clima */
 .climate-band { background: var(--panel); border-block: 1px solid var(--line); }
-.climate-band .stripes--band { height: clamp(90px, 14vw, 160px); }
+.ods-bar { display: grid; grid-template-columns: repeat(17, 1fr); height: clamp(90px, 14vw, 160px); }
+.ods-bar span { display: flex; align-items: flex-end; padding: 0 0 10px 8px; font: 700 clamp(13px, 1.6vw, 22px)/1 var(--f-display); color: rgba(255,255,255,.92); }
+.ods-bar span:nth-child(1){background:#E5243B} .ods-bar span:nth-child(2){background:#DDA63A} .ods-bar span:nth-child(3){background:#4C9F38}
+.ods-bar span:nth-child(4){background:#C5192D} .ods-bar span:nth-child(5){background:#FF3A21} .ods-bar span:nth-child(6){background:#26BDE2}
+.ods-bar span:nth-child(7){background:#FCC30B} .ods-bar span:nth-child(8){background:#A21942} .ods-bar span:nth-child(9){background:#FD6925}
+.ods-bar span:nth-child(10){background:#DD1367} .ods-bar span:nth-child(11){background:#FD9D24} .ods-bar span:nth-child(12){background:#BF8B2E}
+.ods-bar span:nth-child(13){background:#3F7E44} .ods-bar span:nth-child(14){background:#0A97D9} .ods-bar span:nth-child(15){background:#56C02B}
+.ods-bar span:nth-child(16){background:#00689D} .ods-bar span:nth-child(17){background:#19486A}
 .climate-copy { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 5vw, 72px); padding-block: clamp(48px, 7vw, 80px); align-items: center; }
 .climate-copy h2 { font-size: clamp(26px, 3.2vw, 40px); }
 .climate-copy p { color: var(--muted); font-size: 18px; }
@@ -213,7 +220,6 @@ h1 em, h2 em { font-style: normal; color: var(--mint); }
 .cta-inner { padding-block: clamp(80px, 11vw, 140px); max-width: 860px; }
 .cta h2 { margin-bottom: 20px; }
 .cta p:not(.eyebrow) { color: var(--muted); font-size: 18px; margin: 0 auto 36px; max-width: 60ch; }
-.cta .cta-sub { font: 400 13px var(--f-mono); color: var(--dim); margin: 22px 0 0; }
 
 /* footer */
 .site-footer { border-top: 1px solid var(--line); padding: 36px 0 40px; font-size: 14px; color: var(--dim); }
@@ -288,3 +294,33 @@ h1 em, h2 em { font-style: normal; color: var(--mint); }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* ---------- silhuetas de fundo (cidades verdes, clima, sustentabilidade) ---------- */
+.deco { position: relative; isolation: isolate; overflow: hidden; }
+.deco::after {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  background: no-repeat center / contain; opacity: .05;
+  width: clamp(200px, 30vw, 420px); aspect-ratio: 1;
+  top: clamp(32px, 6vw, 72px); right: -40px;
+}
+.deco--skyline::after {
+  width: auto; aspect-ratio: auto; left: 0; right: 0; top: auto; bottom: 0;
+  height: clamp(110px, 17vw, 230px);
+  background: url(img/deco/skyline.svg) repeat-x center bottom / auto 100%;
+  opacity: .06;
+}
+.deco--turbines::after { background-image: url(img/deco/turbines.svg); top: auto; bottom: 0; right: -20px; opacity: .045; }
+.deco--leaf::after     { background-image: url(img/deco/leaf.svg); }
+.deco--rain::after     { background-image: url(img/deco/cloud-rain.svg); }
+.deco--trees::after    { background-image: url(img/deco/trees.svg); }
+.deco--globe::after    { background-image: url(img/deco/globe.svg); }
+.deco--solar::after    { background-image: url(img/deco/sun-solar.svg); }
+.deco--faq::after      { background-image: url(img/deco/turbines.svg); top: auto; right: auto; bottom: 0; left: -30px; }
+
+@media (max-width: 880px) {
+  .deco::after { width: 200px; right: -50px; top: 24px; opacity: .04; }
+  .deco--skyline::after { width: auto; right: 0; top: auto; opacity: .05; }
+  .deco--turbines::after, .deco--faq::after { top: auto; bottom: 0; }
+  .ods-bar span { padding: 0 0 6px 3px; }
+}
+.hero.deco--skyline::after { opacity: .04; }
