@@ -100,18 +100,15 @@ h1 em, h2 em { font-style: normal; color: var(--mint); }
 
 /* ---------- hero ---------- */
 .hero {
-  position: relative;
+  position: relative; isolation: isolate; overflow: hidden;
   padding: clamp(64px, 10vw, 120px) 0 28px;
-  background:
-    linear-gradient(to bottom, transparent 60%, var(--night)),
-    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 64px 64px,
-    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 64px 64px;
-  background-color: var(--night);
+  background: var(--night);
 }
-.hero::before { /* esmaece a malha nas bordas */
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 30% 40%, transparent 30%, var(--night) 80%);
-  pointer-events: none;
+.hero::before { /* véu escuro sobre a topografia, atrás do texto, pra manter a leitura */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 70% at 25% 50%, rgba(12,27,36,.85), transparent 75%),
+    linear-gradient(to bottom, transparent 75%, var(--night));
 }
 .hero-grid { position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: end; }
 .hero h1 { margin-bottom: 24px; }
@@ -143,14 +140,6 @@ h1 em, h2 em { font-style: normal; color: var(--mint); }
 
 /* faixa do clima */
 .climate-band { background: var(--panel); border-block: 1px solid var(--line); }
-.ods-bar { display: grid; grid-template-columns: repeat(17, 1fr); height: clamp(90px, 14vw, 160px); }
-.ods-bar span { display: flex; align-items: flex-end; padding: 0 0 10px 8px; font: 700 clamp(13px, 1.6vw, 22px)/1 var(--f-display); color: rgba(255,255,255,.92); }
-.ods-bar span:nth-child(1){background:#E5243B} .ods-bar span:nth-child(2){background:#DDA63A} .ods-bar span:nth-child(3){background:#4C9F38}
-.ods-bar span:nth-child(4){background:#C5192D} .ods-bar span:nth-child(5){background:#FF3A21} .ods-bar span:nth-child(6){background:#26BDE2}
-.ods-bar span:nth-child(7){background:#FCC30B} .ods-bar span:nth-child(8){background:#A21942} .ods-bar span:nth-child(9){background:#FD6925}
-.ods-bar span:nth-child(10){background:#DD1367} .ods-bar span:nth-child(11){background:#FD9D24} .ods-bar span:nth-child(12){background:#BF8B2E}
-.ods-bar span:nth-child(13){background:#3F7E44} .ods-bar span:nth-child(14){background:#0A97D9} .ods-bar span:nth-child(15){background:#56C02B}
-.ods-bar span:nth-child(16){background:#00689D} .ods-bar span:nth-child(17){background:#19486A}
 .climate-copy { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 5vw, 72px); padding-block: clamp(48px, 7vw, 80px); align-items: center; }
 .climate-copy h2 { font-size: clamp(26px, 3.2vw, 40px); }
 .climate-copy p { color: var(--muted); font-size: 18px; }
@@ -290,37 +279,60 @@ h1 em, h2 em { font-style: normal; color: var(--mint); }
   .wa-float { right: 14px; bottom: 14px; }
 }
 
+
+/* ---------- hero: topografia orgânica + ícones sobre as curvas ---------- */
+.topo { position: absolute; inset: 0; z-index: -2; pointer-events: none; }
+.topo-inner {               /* caixa 16:10 fixa: mantém os ícones exatamente sobre as linhas */
+  position: absolute; left: 50%; top: 50%;
+  width: max(100%, 1440px); aspect-ratio: 16 / 10;
+  transform: translate(-50%, -50%);
+  animation: drift 26s ease-in-out infinite alternate;
+}
+.topo-lines { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; }
+@keyframes drift {
+  from { translate: 0 0; scale: 1; }
+  to   { translate: -16px 10px; scale: 1.025; }
+}
+
+/* ---------- ícones flutuantes (Font Awesome, degradê verde-limão) ---------- */
+.section, .cta { position: relative; isolation: isolate; overflow: hidden; }
+.float-icons { position: absolute; z-index: -1; pointer-events: none; opacity: .72; }
+.float-icons--right {
+  top: clamp(40px, 6vw, 88px); right: max(var(--gutter), calc((100% - var(--wrap)) / 2 + var(--gutter)));
+  width: min(380px, 32vw); height: 280px;
+}
+.float-icons--left {
+  bottom: clamp(48px, 8vw, 110px); left: max(var(--gutter), calc((100% - var(--wrap)) / 2 + var(--gutter)));
+  width: min(340px, 30vw); height: 240px;
+}
+.float-icons--sides { inset: 0; }
+
+.topo i, .float-icons i {
+  position: absolute; left: var(--x); top: var(--y);
+  font-size: calc(var(--s) * var(--k, 1));
+  background: linear-gradient(140deg, #D4F542 0%, #7ED957 45%, #2FB37A 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 10px rgba(126, 217, 87, .3));
+  transform: translate(-50%, -50%);
+  animation: bob var(--t, 8s) ease-in-out var(--dl, 0s) infinite alternate;
+}
+.topo i { opacity: .72; --k: 1.15; }
+@keyframes bob {
+  from { translate: 0 -5px; rotate: -5deg; }
+  to   { translate: 0 6px;  rotate: 5deg; }
+}
+
+@media (max-width: 880px) {
+  .topo-inner { width: 2000px; left: -1060px; transform: translateY(-50%); }
+  .hero::before { background: linear-gradient(rgba(12,27,36,.45), rgba(12,27,36,.45)), linear-gradient(to bottom, transparent 75%, var(--night)); }
+  .float-icons { opacity: .32; --k: .62; }
+  .topo i { opacity: .3; }
+  .float-icons--right { width: 170px; height: 150px; right: 0; top: 24px; }
+  .float-icons--left { width: 170px; height: 150px; left: auto; right: 0; bottom: 24px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
+  .topo-inner, .topo i, .float-icons i { animation: none; }
 }
-
-/* ---------- silhuetas de fundo (cidades verdes, clima, sustentabilidade) ---------- */
-.deco { position: relative; isolation: isolate; overflow: hidden; }
-.deco::after {
-  content: ""; position: absolute; z-index: -1; pointer-events: none;
-  background: no-repeat center / contain; opacity: .05;
-  width: clamp(200px, 30vw, 420px); aspect-ratio: 1;
-  top: clamp(32px, 6vw, 72px); right: -40px;
-}
-.deco--skyline::after {
-  width: auto; aspect-ratio: auto; left: 0; right: 0; top: auto; bottom: 0;
-  height: clamp(110px, 17vw, 230px);
-  background: url(img/deco/skyline.svg) repeat-x center bottom / auto 100%;
-  opacity: .06;
-}
-.deco--turbines::after { background-image: url(img/deco/turbines.svg); top: auto; bottom: 0; right: -20px; opacity: .045; }
-.deco--leaf::after     { background-image: url(img/deco/leaf.svg); }
-.deco--rain::after     { background-image: url(img/deco/cloud-rain.svg); }
-.deco--trees::after    { background-image: url(img/deco/trees.svg); }
-.deco--globe::after    { background-image: url(img/deco/globe.svg); }
-.deco--solar::after    { background-image: url(img/deco/sun-solar.svg); }
-.deco--faq::after      { background-image: url(img/deco/turbines.svg); top: auto; right: auto; bottom: 0; left: -30px; }
-
-@media (max-width: 880px) {
-  .deco::after { width: 200px; right: -50px; top: 24px; opacity: .04; }
-  .deco--skyline::after { width: auto; right: 0; top: auto; opacity: .05; }
-  .deco--turbines::after, .deco--faq::after { top: auto; bottom: 0; }
-  .ods-bar span { padding: 0 0 6px 3px; }
-}
-.hero.deco--skyline::after { opacity: .04; }

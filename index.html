@@ -18,6 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
@@ -81,7 +83,26 @@
 <main id="conteudo">
 
 <!-- HERO -->
-<section class="hero deco deco--skyline" id="topo">
+<section class="hero" id="topo">
+  <div class="topo" aria-hidden="true">
+   <div class="topo-inner">
+    <img class="topo-lines" src="img/topo.svg" alt="">
+    <i class="fa-solid fa-city" style="--x:69.17%;--y:15.7%;--s:30px;--t:7s;--dl:-1s"></i>
+    <i class="fa-solid fa-wind" style="--x:87.1%;--y:12.67%;--s:24px;--t:9s;--dl:-3s"></i>
+    <i class="fa-solid fa-leaf" style="--x:96.67%;--y:27.55%;--s:16px;--t:6s;--dl:-2s"></i>
+    <i class="fa-solid fa-solar-panel" style="--x:56.47%;--y:28%;--s:22px;--t:8s;--dl:-5s"></i>
+    <i class="fa-solid fa-recycle" style="--x:94.24%;--y:62.67%;--s:26px;--t:10s;--dl:-4s"></i>
+    <i class="fa-solid fa-tree" style="--x:90.42%;--y:86.65%;--s:20px;--t:7s;--dl:-6s"></i>
+    <i class="fa-solid fa-person-biking" style="--x:66.15%;--y:89.33%;--s:18px;--t:8s;--dl:-2s"></i>
+    <i class="fa-solid fa-droplet" style="--x:47.92%;--y:96.61%;--s:14px;--t:6s;--dl:-1s"></i>
+    <i class="fa-solid fa-seedling" style="--x:3.33%;--y:12.93%;--s:18px;--t:7s;--dl:-3s"></i>
+    <i class="fa-solid fa-cloud-sun-rain" style="--x:4.27%;--y:57.33%;--s:22px;--t:9s;--dl:-6s"></i>
+    <i class="fa-solid fa-temperature-half" style="--x:35.24%;--y:11.33%;--s:14px;--t:6s;--dl:-4s"></i>
+    <i class="fa-solid fa-earth-americas" style="--x:50.02%;--y:66.67%;--s:16px;--t:8s;--dl:-7s"></i>
+    <i class="fa-solid fa-hand-holding-droplet" style="--x:13.38%;--y:96%;--s:16px;--t:7s;--dl:-5s"></i>
+    <i class="fa-solid fa-tree-city" style="--x:75.83%;--y:86.1%;--s:26px;--t:10s;--dl:-8s"></i>
+   </div>
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">// assessoria ambiental e climática municipal</p>
@@ -103,7 +124,13 @@
 </section>
 
 <!-- SOBRE -->
-<section class="section deco deco--turbines" id="sobre">
+<section class="section" id="sobre">
+  <div class="float-icons float-icons--left" aria-hidden="true">
+    <i class="fa-solid fa-tree-city" style="--x:10%;--y:40%;--s:58px;--t:9s;--dl:-1s"></i>
+    <i class="fa-solid fa-leaf" style="--x:48%;--y:18%;--s:26px;--t:7s;--dl:-3s"></i>
+    <i class="fa-solid fa-solar-panel" style="--x:62%;--y:62%;--s:34px;--t:8s;--dl:-5s"></i>
+    <i class="fa-solid fa-person-biking" style="--x:30%;--y:84%;--s:24px;--t:7s;--dl:-2s"></i>
+  </div>
   <div class="wrap split">
     <div>
       <p class="eyebrow">// sobre a ecogov</p>
@@ -119,7 +146,7 @@
 
 <!-- FAIXA CLIMA -->
 <section class="climate-band" aria-labelledby="clima-titulo">
-  <div class="ods-bar" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span></div>
+  <div class="stripes stripes--band" aria-hidden="true"></div>
   <div class="wrap climate-copy">
     <h2 id="clima-titulo">O clima já mudou. A pergunta é se a sua cidade está preparada.</h2>
     <p>Enchentes, secas, ondas de calor e surtos de dengue já chegam às prefeituras como problemas de saúde, obras, agricultura e orçamento. Quem se antecipa gasta menos e protege mais.</p>
@@ -127,7 +154,14 @@
 </section>
 
 <!-- SERVIÇOS -->
-<section class="section deco deco--leaf" id="servicos">
+<section class="section" id="servicos">
+  <div class="float-icons float-icons--right" aria-hidden="true">
+    <i class="fa-solid fa-recycle" style="--x:62%;--y:22%;--s:54px;--t:9s;--dl:-2s"></i>
+    <i class="fa-solid fa-solar-panel" style="--x:22%;--y:40%;--s:34px;--t:8s;--dl:-4s"></i>
+    <i class="fa-solid fa-wind" style="--x:86%;--y:64%;--s:30px;--t:7s;--dl:-1s"></i>
+    <i class="fa-solid fa-seedling" style="--x:44%;--y:74%;--s:22px;--t:6s;--dl:-3s"></i>
+    <i class="fa-solid fa-charging-station" style="--x:8%;--y:12%;--s:22px;--t:8s;--dl:-6s"></i>
+  </div>
   <div class="wrap">
     <header class="section-head">
       <p class="eyebrow">// o que oferecemos</p>
@@ -195,7 +229,13 @@
 </section>
 
 <!-- COMO FUNCIONA -->
-<section class="section section--alt deco deco--rain" id="como-funciona">
+<section class="section section--alt" id="como-funciona">
+  <div class="float-icons float-icons--right" aria-hidden="true">
+    <i class="fa-solid fa-cloud-sun-rain" style="--x:58%;--y:26%;--s:56px;--t:9s;--dl:-1s"></i>
+    <i class="fa-solid fa-umbrella" style="--x:20%;--y:58%;--s:26px;--t:7s;--dl:-4s"></i>
+    <i class="fa-solid fa-droplet" style="--x:82%;--y:70%;--s:20px;--t:6s;--dl:-2s"></i>
+    <i class="fa-solid fa-temperature-arrow-up" style="--x:38%;--y:82%;--s:28px;--t:8s;--dl:-5s"></i>
+  </div>
   <div class="wrap">
     <header class="section-head">
       <p class="eyebrow">// como funciona</p>
@@ -212,7 +252,14 @@
 </section>
 
 <!-- SECRETARIAS -->
-<section class="section deco deco--trees" id="secretarias">
+<section class="section" id="secretarias">
+  <div class="float-icons float-icons--right" aria-hidden="true">
+    <i class="fa-solid fa-building-columns" style="--x:60%;--y:24%;--s:50px;--t:9s;--dl:-3s"></i>
+    <i class="fa-solid fa-bus" style="--x:18%;--y:50%;--s:28px;--t:7s;--dl:-1s"></i>
+    <i class="fa-solid fa-house-flood-water" style="--x:86%;--y:62%;--s:30px;--t:8s;--dl:-5s"></i>
+    <i class="fa-solid fa-wheat-awn" style="--x:44%;--y:80%;--s:24px;--t:7s;--dl:-2s"></i>
+    <i class="fa-solid fa-faucet-drip" style="--x:10%;--y:14%;--s:20px;--t:6s;--dl:-4s"></i>
+  </div>
   <div class="wrap">
     <header class="section-head">
       <p class="eyebrow">// público da capacitação</p>
@@ -233,7 +280,13 @@
 </section>
 
 <!-- ODS -->
-<section class="section section--alt deco deco--globe" id="ods">
+<section class="section section--alt" id="ods">
+  <div class="float-icons float-icons--right" aria-hidden="true">
+    <i class="fa-solid fa-earth-americas" style="--x:60%;--y:30%;--s:58px;--t:10s;--dl:-2s"></i>
+    <i class="fa-solid fa-hands-holding-circle" style="--x:20%;--y:62%;--s:34px;--t:8s;--dl:-5s"></i>
+    <i class="fa-solid fa-dove" style="--x:88%;--y:72%;--s:24px;--t:7s;--dl:-1s"></i>
+    <i class="fa-solid fa-fish" style="--x:40%;--y:88%;--s:22px;--t:6s;--dl:-3s"></i>
+  </div>
   <div class="wrap">
     <header class="section-head">
       <p class="eyebrow">// agenda 2030</p>
@@ -258,7 +311,13 @@
 </section>
 
 <!-- FORMATOS -->
-<section class="section deco deco--solar" id="formatos">
+<section class="section" id="formatos">
+  <div class="float-icons float-icons--right" aria-hidden="true">
+    <i class="fa-solid fa-lightbulb" style="--x:58%;--y:26%;--s:48px;--t:9s;--dl:-4s"></i>
+    <i class="fa-solid fa-sun" style="--x:20%;--y:18%;--s:30px;--t:8s;--dl:-1s"></i>
+    <i class="fa-solid fa-battery-full" style="--x:86%;--y:64%;--s:24px;--t:7s;--dl:-3s"></i>
+    <i class="fa-solid fa-car-side" style="--x:34%;--y:72%;--s:28px;--t:8s;--dl:-6s"></i>
+  </div>
   <div class="wrap">
     <header class="section-head">
       <p class="eyebrow">// formatos de atuação</p>
@@ -300,7 +359,12 @@
 </section>
 
 <!-- FAQ -->
-<section class="section section--alt deco deco--faq" id="faq">
+<section class="section section--alt" id="faq">
+  <div class="float-icons float-icons--left" aria-hidden="true">
+    <i class="fa-solid fa-hand-holding-heart" style="--x:16%;--y:34%;--s:46px;--t:9s;--dl:-2s"></i>
+    <i class="fa-solid fa-seedling" style="--x:58%;--y:18%;--s:26px;--t:7s;--dl:-4s"></i>
+    <i class="fa-solid fa-mountain-sun" style="--x:46%;--y:74%;--s:32px;--t:8s;--dl:-1s"></i>
+  </div>
   <div class="wrap faq-grid">
     <header class="section-head">
       <p class="eyebrow">// dúvidas frequentes</p>
@@ -336,7 +400,14 @@
 </section>
 
 <!-- CTA -->
-<section class="cta deco deco--skyline" id="contato">
+<section class="cta" id="contato">
+  <div class="float-icons float-icons--sides" aria-hidden="true">
+    <i class="fa-solid fa-tree" style="--x:6%;--y:30%;--s:42px;--t:9s;--dl:-1s"></i>
+    <i class="fa-solid fa-leaf" style="--x:16%;--y:72%;--s:24px;--t:7s;--dl:-3s"></i>
+    <i class="fa-solid fa-wind" style="--x:92%;--y:26%;--s:38px;--t:8s;--dl:-2s"></i>
+    <i class="fa-solid fa-solar-panel" style="--x:84%;--y:70%;--s:28px;--t:9s;--dl:-5s"></i>
+    <i class="fa-solid fa-recycle" style="--x:96%;--y:84%;--s:20px;--t:6s;--dl:-4s"></i>
+  </div>
   <div class="stripes stripes--band" aria-hidden="true"></div>
   <div class="wrap cta-inner">
     <p class="eyebrow">// pronto para começar?</p>
